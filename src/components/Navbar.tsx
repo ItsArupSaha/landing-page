@@ -17,7 +17,7 @@ export function Navbar() {
   const bgOpacity = useTransform(scrollY, [0, 80], [0, 0.4]);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setMounted(true), 120);
+    const timer = window.setTimeout(() => setMounted(true), 1500);
     return () => window.clearTimeout(timer);
   }, []);
 
@@ -25,7 +25,7 @@ export function Navbar() {
     <motion.header
       initial={{ opacity: 0, y: -10 }}
       animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
       className="fixed inset-x-0 top-0 z-50 border-b border-[rgba(255,255,255,0.07)] backdrop-blur-[8px]"
       style={{ backgroundColor: "rgba(0,0,0,0.72)" }}
     >

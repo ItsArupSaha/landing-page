@@ -3,41 +3,41 @@ import { ArrowUpRight } from "lucide-react";
 import { BlackHoleVisual } from "./BlackHoleVisual";
 import { ParticleField } from "./ParticleField";
 
-// Stagger container
+// Stagger container — 1.5s delay so rings + particles play first
 const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.13,
-      delayChildren: 0.1,
+      staggerChildren: 0.24,
+      delayChildren: 1.5,
     },
   },
 };
 
-// Each child fades up smoothly
+// Each element drifts in over 2s — barely moves, barely blurs
 const itemVariants = {
-  hidden: { opacity: 0, y: 14, filter: "blur(6px)" },
+  hidden: { opacity: 0, y: 7, filter: "blur(4px)" },
   visible: {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
     transition: {
-      duration: 0.95,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+      duration: 2.0,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
     },
   },
 };
 
-// Headline gets a slightly longer, softer entrance
+// Headline — the longest, slowest settle of all
 const headlineVariants = {
-  hidden: { opacity: 0, y: 18, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 10, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
     transition: {
-      duration: 1.1,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+      duration: 2.2,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
     },
   },
 };
@@ -71,19 +71,19 @@ export function Hero() {
             className="rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide text-white"
             style={{ background: "linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%)" }}
           >
-            New
+            Introducing
           </span>
           <span className="px-3 py-1 text-[12px] text-[rgba(255,255,255,0.82)]">
-            Automated Lead Generation
+            Your Smart Front-desk Agent
           </span>
         </motion.div>
 
         {/* Headline */}
         <motion.h1
           variants={headlineVariants}
-          className="max-w-[700px] text-[clamp(2.6rem,5.8vw,4rem)] font-bold leading-[1.08] tracking-[-0.04em] text-white"
+          className="max-w-[700px] text-[clamp(2rem,5vw,3rem)] font-bold leading-[1.08] tracking-[-0.04em] text-white"
         >
-          Intelligent Automation for Modern Businesses.
+          Front-Desk Voice Agent For Home Service Agencies.
         </motion.h1>
 
         {/* Subtext */}
